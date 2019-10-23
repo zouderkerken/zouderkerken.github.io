@@ -1,5 +1,7 @@
 var title;
+var date;
 var myTimes = {};
+
 
 
 //  EVENT LISTENER FOR CLOSE BTN --> REMOVE TIMES
@@ -20,7 +22,7 @@ $('#exampleModal').on('show.bs.modal', function (event) {
   title = button.data('whatever') // Extract info from data-* attributes
 
   // Get Times from Object, Grab date of selected button, find times in object
-  var date = button[0].id;
+  date = button[0].id;
   var times = datesAndTimes[date];
   let html = ""
 
@@ -51,7 +53,7 @@ $('#exampleModal').on('show.bs.modal', function (event) {
 
   	// add times to bottom div
   	$("#myTimes").append(`<div class="newTime py-3"><button class="closeBtn">X</button> <h5>${title}</h5> \ <p>${text}</p></div>`);
-  	myTimes[title] = text;
+  	myTimes[date] = text;
   	console.log(myTimes);
   	// show next button
 	$("#nextBtn").show();
@@ -62,17 +64,61 @@ $('#exampleModal').on('show.bs.modal', function (event) {
 
 
 
-// SUBMIT  FUNCTION ----------------------------------------------------------------
-function submit() {
-	// fill mytimes with response text, change .alert css to display blocl
-	$(".alert").css("display", "block");;
-	// remove times
-	$(".newTime").hide();
-	// remove next button
-	$("#nextBtn").hide();
+
+  function postToGoogle() {
+                var field1 = $("#nameField").val();
+                var field2 = $("#emailField").val();
+                var field3 = finalTimes;
+                // var field4 = myTimes;
+        
+        if(field1 == ""){
+          alert('Please Fill Your Name');
+          document.getElementById("nameField").focus();
+          return false;
+        }
+        if(field2 == ""){
+          alert('Please Fill Your Email');
+          document.getElementById("emailField").focus();
+          return false;
+        }
+        // if(field3 == "" || field3.length > 10 || field3.length < 10){
+        //   alert('Please Fill Your Mobile Number');
+        //   document.getElementById("mobField").focus();
+        //   return false;
+        // }
+
+
+        
+  
+                $.ajax({
+                    url: "https://docs.google.com/forms/d/e/1FAIpQLSeQBlvPT8ff2UxFycd9RicTHsHvjm9bONjJTc2PQu2UM1NbJg/formResponse?",
+          data: {"entry.739616620": field1, "entry.1591878149": field2, "entry.574420465": field3},
+                    type: "POST",
+                    dataType: "xml",
+                    success: function(d)
+          {
+          },
+          error: function(x, y, z)
+            {
+
+              $('#success-msg').show();
+              $('#form').hide();
+              
+            }
+                });
+        return false;
+            }
+
+
+
+
+function confirmationPage() {
+  window.location.href = 'confirmation.html';
+  myTimes = JSON.stringify(myTimes);
+  localStorage.setItem("finalTimes",myTimes);
+  localStorage.setItem("finalTimesHtml",$("#myTimes").html());
+
 }
-
-
 
 
 

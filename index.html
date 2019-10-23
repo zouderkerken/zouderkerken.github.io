@@ -1,8 +1,12 @@
+<!DOCTYPE html>
 <html lang="en">
 <head>
 
 	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
 	<title>Calendar</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 	<link rel="stylesheet" type="text/css" href="style.css">
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:300,400,700">
@@ -11,12 +15,12 @@
 	  integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
 	  crossorigin="anonymous">
 	</script>
-	<script src="//script.sheetsu.com/"></script>
 
 
 
 </head>
 <body>
+
 
 	<div class="container-fluid p-0">
 		<div class="text-center">
@@ -131,11 +135,13 @@
 			<h3 class="text-center" style="letter-spacing: 2px">MY TIMES</h3>
 			<hr>
 			<div class="alert alert-success" role="alert">
-			  Thanks for signing up! You will receive a confirmation email shortly to remind you of your selected times.
+			  Thanks for signing up! You will receive an email confirmation shortly to remind you of your selected times.
 			</div>
 		</div>
 		<div class="footer">
-	        <button id = "nextBtn" type="button" class="btn btn-primary btn-block" data-toggle="modal" data-target="#exampleModal2" onclick= "">Next</button>
+	        <!-- <button id = "nextBtn" type="button" class="btn btn-primary btn-block" data-toggle="modal" data-target="#exampleModal2" onclick= "">Next</button> -->
+	        <button id = "nextBtn" type="button" class="btn btn-primary btn-block" onclick= "confirmationPage()">Next</button>
+
 	    </div>
 
 
@@ -205,6 +211,8 @@
 		</div>
 
 
+
+
 	</div> <!-- end container -->
 
 
@@ -213,7 +221,7 @@
 	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 	<script src="script.js"></script>
 	<script src="data.js"></script>
-	<script src="//load.sheetsu.com"></script>
+
 
 
 

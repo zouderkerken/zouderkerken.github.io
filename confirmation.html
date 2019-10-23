@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<link rel="stylesheet" type="text/css" href="style.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:300,400,700">
+
+<style>
+
+form {
+  border: 3px solid #f1f1f1;
+  padding-top: 30px;
+  padding-bottom: 30px;
+  text-align: center;
+
+}
+
+input[type=text], input[type=email], select {
+  width: 80%;
+  font-size:20px;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+}
+
+button {
+  background-color: #4b9968;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 80%;
+  margin-top: 50px;
+}
+
+button:hover {
+  opacity: 0.8;
+}
+
+.cancelbtn {
+  width: auto;
+  padding: 10px 18px;
+  background-color: #f44336;
+}
+
+.imgcontainer {
+  text-align: center;
+  margin: 24px 0 12px 0;
+}
+
+img.avatar {
+  width: 20%;
+  border-radius: 50%;
+}
+
+.container {
+  padding: 16px;
+}
+
+span.psw {
+  float: right;
+  padding-top: 16px;
+}
+
+.closeBtn {
+  display: none;
+}
+/* Change styles for span and cancel button on extra small screens */
+@media screen and (max-width: 300px) {
+  span.psw {
+     display: block;
+     float: none;
+  }
+  .cancelbtn {
+     width: 100%;
+  }
+}
+</style>
+
+
+</head>
+<body>
+
+<script>
+  <!-- ACCESS TIMES FROM PREVIOUS PAGE -->
+  // window.onload = alert(localStorage.getItem("finalTimes"));
+  var finalTimes = localStorage.getItem("finalTimes");
+  var finalTimesHtml = localStorage.getItem("finalTimesHtml");
+
+</script>
+
+<div class="container-fluid p-0">
+    <div class="text-center">
+      <img src="2Artboard 1@300x.png" style="width: 150px;">
+    </div>
+    <div class="intro">
+      <h3>CONFIRMATION</h3>
+      <p>Please leave your name and email below and we will send you an email reminder of your upcoming serve times. Thanks!</p>
+    </div>
+</div>
+
+<form id="form" target="_self" onsubmit="return postToGoogle();" action="" autocomplete="off"> 
+<input id="nameField" name="entry.739616620" placeholder="First & Last Name" type="text" required style="margin-bottom: 25px;"><br>
+<input id="emailField" name="entry.1591878149" placeholder="Email Address" type="email" required> 
+<!-- <input id="mobField" name="entry.574420465" placeholder="Enter your 10 Digit Phone Number" type="text" pattern="^\d{10}$" required> -->
+<!-- <select id="cinema" name="entry.1997831598" placeholder="Select Cinema" required>
+<option value="">Why wanTED Talks Youtube Channel?</option>
+<option value="City: Delhi, Cinema: PVR Logix City Centre IMAX, Noida">Time Saving Fast Track Tutorials</option>
+<option value="City:Bengaluru  Cinema:Cinepolis IMAX Forum Shantiniketan">Provide Code for reference</option>
+<option value="City:Chennai Cinema:SPI Palazo The Forum Vijaya Mall, Vadapalani">Instant Replies of Comments</option>
+<option value="City:Pune Cinema:Cinepolis Westend Mall, Pune">Latest Code Updates</option> 
+</select>  -->
+<button id="send" type="submit" class="common_btn">Register Now</button>
+</form>
+
+<h3 id="success-msg" style="text-align: center !important; margin-top:190px !important; display:none; color: black"> Thanks for signing up! You will receive a confirmation email shortly to remind you of your selected times.</h3>
+
+<div id="myTimes">
+  <h3 class="text-center" style="letter-spacing: 2px">MY TIMES</h3>
+  <hr>
+</div>
+
+
+
+
+<script>
+  $("#myTimes").html(finalTimesHtml);
+</script>
+<script src="script.js"></script>
+</body>
+</html>
